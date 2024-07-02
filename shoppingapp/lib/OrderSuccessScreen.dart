@@ -11,19 +11,19 @@ class Ordersuccessscreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.verified,
               size: 60,
               color: Colors.purple,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(
               "Order Successful",
               style: TextStyle(color: Colors.purple.shade600, fontSize: 28),
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
             SizedBox(
@@ -36,11 +36,11 @@ class Ordersuccessscreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop(
                     MaterialPageRoute(
-                      builder: (context) => Homepage(),
+                      builder: (context) => const Homepage(),
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Back To Home',
                   style: TextStyle(color: Colors.white),
                 ),

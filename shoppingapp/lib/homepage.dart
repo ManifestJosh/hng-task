@@ -44,7 +44,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
@@ -77,8 +77,8 @@ class _HomepageState extends State<Homepage> {
                                 height: 80,
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.purple),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(16))),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(16))),
                                 child: ListTile(
                                     title: Text(products[index].name),
                                     subtitle:
@@ -86,10 +86,11 @@ class _HomepageState extends State<Homepage> {
                                     trailing: IconButton(
                                       onPressed: () =>
                                           addtoCheckout(products[index]),
-                                      icon: Icon(Icons.add),
+                                      icon: const Icon(Icons.add,
+                                          color: Colors.purple),
                                     )),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               )
                             ],
@@ -100,35 +101,26 @@ class _HomepageState extends State<Homepage> {
                     child: Column(
                       children: [
                         Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                width: double.maxFinite,
-                                height: 80,
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.purple),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(16))),
-                                child: ListView.builder(
-                                  itemCount: checkoutItems.length,
-                                  itemBuilder: (context, index) {
-                                    return ListTile(
-                                        title: Text(checkoutItems[index].name),
-                                        subtitle: Text(
-                                            '\$${checkoutItems[index].price}'),
-                                        trailing: IconButton(
-                                          onPressed: () => removeFromCheckout(
-                                              checkoutItems[index]),
-                                          icon: Icon(Icons.remove),
-                                        ));
-                                  },
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              )
-                            ],
+                          child: ListView.builder(
+                            itemCount: checkoutItems.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                  title: Text(checkoutItems[index].name),
+                                  subtitle:
+                                      Text('\$${checkoutItems[index].price}'),
+                                  trailing: IconButton(
+                                    onPressed: () => removeFromCheckout(
+                                        checkoutItems[index]),
+                                    icon: const Icon(
+                                      Icons.remove,
+                                      color: Colors.purple,
+                                    ),
+                                  ));
+                            },
                           ),
+                        ),
+                        const SizedBox(
+                          height: 20,
                         ),
                         SizedBox(
                           width: double.maxFinite,
@@ -143,11 +135,11 @@ class _HomepageState extends State<Homepage> {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            Ordersuccessscreen(),
+                                            const Ordersuccessscreen(),
                                       ),
                                     );
                                   },
-                            child: Text(
+                            child: const Text(
                               'Place Order',
                               style: TextStyle(color: Colors.white),
                             ),
